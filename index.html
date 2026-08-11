@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>스토어정리함</title><link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app">
+    <header><div><p class="eyebrow">NAVER SMARTSTORE HELPER</p><h1>주문 정리함</h1><p class="subtitle">상품명, 리본문구, 배송지를 한눈에 정리합니다.</p></div><span id="orderCount" class="badge">0건</span></header>
+    <section class="card import-card">
+      <p class="eyebrow">1. 주문 가져오기</p><h2>스마트스토어 주문을 바로 불러오세요</h2>
+      <p class="help">최근 24시간 동안 변경된 주문을 조회합니다. 키는 서버의 <code>.env</code>에만 보관됩니다.</p>
+      <div class="api-actions"><button id="apiButton" class="primary">스마트스토어에서 불러오기</button><span id="apiStatus" class="status">조회 전용 API 연결</span></div>
+      <div class="divider"><span>또는</span></div>
+      <div class="paste-heading"><strong>주문 목록 직접 붙여넣기</strong><button id="sampleButton" class="secondary">예시 데이터</button></div>
+      <textarea id="importText" placeholder="주문번호	상품명	수량	보내는분	받는분	연락처	우편번호	배송지"></textarea>
+      <div class="footer-row"><span id="importHint">첫 줄의 항목명은 자동으로 인식합니다.</span><button id="parseButton" class="secondary">주문 정리하기</button></div>
+    </section>
+    <section class="orders"><div class="section-head"><div><p class="eyebrow">2. 정리된 주문</p><h2>발송 정보 확인</h2></div><div class="tools"><input id="searchInput" placeholder="상품명, 받는분 검색"><button id="copyButton" class="secondary">전체 복사</button><button id="downloadButton" class="secondary">CSV 저장</button><button id="clearButton" class="link">비우기</button></div></div>
+      <div id="emptyState" class="empty"><b>▦</b><h3>아직 정리된 주문이 없어요</h3><p>스마트스토어에서 불러오거나 주문 내역을 붙여넣어 시작하세요.</p></div>
+      <div id="tableWrap" class="table-wrap hidden"><table><thead><tr><th>상품 정보</th><th>리본문구</th><th>배송지</th><th></th></tr></thead><tbody id="orderRows"></tbody></table></div>
+    </section>
+  </main><div id="toast" class="toast"></div><script src="app.js"></script>
+</body></html>
